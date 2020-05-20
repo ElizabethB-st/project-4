@@ -34,4 +34,14 @@ let controller = function() {
   });
 };
 
-$(document).ready(controller);
+let deleteHandler = () => {
+  console.log("dH");
+  localStorage.removeItem("toDoList");
+  window.location.reload();
+};
+
+$(document).ready(() => {
+  let buttonElem = document.querySelectorAll("button")[1];
+  buttonElem.addEventListener(`click`, deleteHandler);
+  controller();
+});
